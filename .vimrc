@@ -5,6 +5,7 @@ Plug 'godlygeek/tabular'
 Plug 'vim-airline/vim-airline'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'ycm-core/YouCompleteMe'
 
 " Initialize plugin system
 call plug#end()
@@ -18,3 +19,5 @@ set autoindent
 set smartindent
 set number
 
+" YouCompleteMe conf
+let g:ycm_confirm_extra_conf = 0
