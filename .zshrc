@@ -68,7 +68,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git command-not-found safe-paste textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git command-not-found safe-paste zsh-autosuggestions zsh-completions zsh-syntax-highlighting colored-man-pages)
+plugins=(git aws command-not-found safe-paste zsh-autosuggestions zsh-completions zsh-syntax-highlighting colored-man-pages docker docker-compose)
 autoload -U compinit && compinit
 
 source $ZSH/oh-my-zsh.sh
@@ -84,6 +84,8 @@ export MANPATH="/usr/local/man:$MANPATH"
 # if [[ -n $SSH_CONNECTION ]]; then
 export VISUAL=vim
 export EDITOR="$VISUAL"
+export WINEPREFIX=/home/thainguyen/.wine32
+export WINEARCH=win32
 # else
 #   export EDITOR='mvim'
 # fi
@@ -104,7 +106,5 @@ export PATH=$PATH:/home/thainguyen/.local/bin
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

@@ -18,6 +18,7 @@ set tabstop=4
 set autoindent
 set smartindent
 set number
+set relativenumber
 
 " YouCompleteMe conf
 let g:ycm_confirm_extra_conf = 0
