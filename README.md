@@ -1,2 +1,2 @@
 # dotfiles
-Dotfiles collection
+Dotfiles collections
