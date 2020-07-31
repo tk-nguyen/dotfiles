@@ -68,7 +68,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git command-not-found safe-paste textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git aws command-not-found safe-paste zsh-autosuggestions zsh-completions zsh-syntax-highlighting colored-man-pages docker docker-compose)
+plugins=(git aws command-not-found safe-paste zsh-autosuggestions zsh-completions zsh-syntax-highlighting colored-man-pages lxd)
 autoload -U compinit && compinit
 
 source $ZSH/oh-my-zsh.sh
