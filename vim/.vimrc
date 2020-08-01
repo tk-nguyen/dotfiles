@@ -5,7 +5,8 @@ Plug 'godlygeek/tabular'
 Plug 'vim-airline/vim-airline'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'ycm-core/YouCompleteMe'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'cohama/lexima.vim'
 
 " Initialize plugin system
 call plug#end()
@@ -22,3 +23,6 @@ set relativenumber
 
 " YouCompleteMe conf
 let g:ycm_confirm_extra_conf = 0
+
+" Deoplete conf
+let g:deoplete#enable_at_startup = 1
