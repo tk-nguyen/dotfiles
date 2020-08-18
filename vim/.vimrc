@@ -7,6 +7,8 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'cohama/lexima.vim'
+Plug 'tpope/vim-surround'
+Plug 'deoplete-plugins/deoplete-jedi'
 
 " Initialize plugin system
 call plug#end()
