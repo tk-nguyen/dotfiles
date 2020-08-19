@@ -9,6 +9,7 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'cohama/lexima.vim'
 Plug 'tpope/vim-surround'
 Plug 'deoplete-plugins/deoplete-jedi'
+Plug 'dracula/vim', { 'as': 'dracula' }
 
 " Initialize plugin system
 call plug#end()
@@ -28,3 +29,6 @@ let g:ycm_confirm_extra_conf = 0
 
 " Deoplete conf
 let g:deoplete#enable_at_startup = 1
+
+" Dracula theme
+colorscheme dracula
