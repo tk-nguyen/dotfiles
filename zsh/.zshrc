@@ -103,5 +103,8 @@ source $ZSH/oh-my-zsh.sh
 # To customize prompt, run `p10k configure` or edit ~/dotfiles/zsh/.p10k.zsh.
 [[ ! -f ~/dotfiles/zsh/.p10k.zsh ]] || source ~/dotfiles/zsh/.p10k.zsh
 
-# Added by serverless binary installer
-export PATH="$HOME/.serverless/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
+export VISUAL=vim 
+export EDITOR=$VISUAL
+alias reddit=ttrv
+

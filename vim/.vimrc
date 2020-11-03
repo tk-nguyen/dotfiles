@@ -37,6 +37,10 @@ if has("multi_byte")
   set fileencodings=ucs-bom,utf-8,latin1
 endif
 
+" Auto indent for certain file types
+autocmd FileType python setlocal ts=4 sw=4 sts=4 expandtab
+autocmd FileType yaml setlocal ts=2 sw=2 sts=2 expandtab
+
 " Vimtex
 let g:tex_flavor = "tex"
 
