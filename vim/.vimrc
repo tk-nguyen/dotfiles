@@ -10,6 +10,7 @@ Plug 'tpope/vim-surround'
 Plug 'lervag/vimtex'
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'tpope/vim-markdown'
+Plug 'Yggdroot/indentLine'
 
 " Initialize plugin system
 call plug#end()
@@ -58,3 +59,7 @@ let g:airline_symbols.linenr = '☰'
 let g:airline_symbols.maxlinenr = ''
 let g:airline_symbols.dirty='⚡'
 let g:airline#extensions#tabline#formatter = 'default'
+
+
+" vim-indentLine config
+let g:indentLine_char = '▏'
