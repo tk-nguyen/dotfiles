@@ -1,6 +1,5 @@
 call plug#begin(stdpath('data') . '/plugged')
 
-Plug '907th/vim-auto-save'
 Plug 'godlygeek/tabular'
 Plug 'vim-airline/vim-airline'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -68,3 +67,4 @@ let g:airline#extensions#tabline#formatter = 'default'
 
 " vim-indentLine config
 let g:indentLine_char = '▏'
+
