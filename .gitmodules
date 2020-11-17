@@ -4,3 +4,9 @@
 [submodule "fzf/.fzf"]
 	path = fzf/.fzf
 	url = https://github.com/junegunn/fzf
+[submodule "awesome/lain"]
+	path = lain
+	url = https://github.com/lcpz/lain.git
+[submodule "awesome/freedesktop"]
+	path = freedesktop
+	url = https://github.com/lcpz/awesome-freedesktop.git
