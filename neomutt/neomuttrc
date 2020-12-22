@@ -24,7 +24,7 @@ set mail_check_stats
 unset imap_passive
 
 # Keep the IMAP connection alive by polling intermittently (time in seconds).
-set imap_keepalive = 300
+set imap_keepalive = 60
 
 # How often to check for new mail (time in seconds).
 set mail_check = 120

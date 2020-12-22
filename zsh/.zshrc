@@ -75,7 +75,7 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 
 # You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -103,13 +103,12 @@ source $ZSH/oh-my-zsh.sh
 # To customize prompt, run `p10k configure` or edit ~/dotfiles/zsh/.p10k.zsh.
 [[ ! -f ~/dotfiles/zsh/.p10k.zsh ]] || source ~/dotfiles/zsh/.p10k.zsh
 
-export PATH="$HOME/.local/bin:$HOME/.poetry/bin:$PATH"
+export PATH="$HOME/.local/bin:$HOME/.poetry/bin:$HOME/.pulumi/bin:$PATH"
 export VISUAL="vim"
 export EDITOR=$VISUAL
 alias reddit="ttrv"
 alias cat="bat"
-alias ls="exa -g"
+alias ls="exa -hg"
 
 fpath+="/usr/share/zsh/vendor-completions"
 autoload -U +X bashcompinit && bashcompinit
-complete -o nospace -C /usr/local/bin/terraform terraform

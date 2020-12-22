@@ -22,6 +22,7 @@ set autoindent
 set smartindent
 set number
 set relativenumber
+set title
 syntax enable
 filetype plugin indent on
 if has("multi_byte")
