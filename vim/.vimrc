@@ -8,7 +8,7 @@ Plug 'cohama/lexima.vim'
 Plug 'tpope/vim-surround'
 Plug 'lervag/vimtex'
 Plug 'dracula/vim', { 'as': 'dracula' }
-Plug 'tpope/vim-markdown'
+Plug 'plasticboy/vim-markdown'
 Plug 'Yggdroot/indentLine'
 
 " Initialize plugin system
@@ -68,4 +68,3 @@ let g:airline#extensions#tabline#formatter = 'default'
 
 " vim-indentLine config
 let g:indentLine_char = '▏'
-
