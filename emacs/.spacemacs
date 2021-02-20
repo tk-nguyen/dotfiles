@@ -32,7 +32,7 @@ This function should only modify configuration layer settings."
 
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
-   '(
+   '(systemd
      rust
      python
      ;; ----------------------------------------------------------------
@@ -45,15 +45,17 @@ This function should only modify configuration layer settings."
      emacs-lisp
      git
      helm
-     (lsp :variables
-          lsp-rust-server 'rust-analyzer)
+     lsp
      emoji
      ;;markdown
      multiple-cursors
      ;; org
-     ;; (shell :variables
-     ;;        shell-default-height 30
-     ;;        shell-default-position 'bottom)
+     (shell :variables
+             shell-default-height 30
+             shell-default-shell 'eshell
+             shell-default-position 'bottom)
+
+     
      spell-checking
      syntax-checking
      ;; version-control

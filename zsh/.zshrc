@@ -2,7 +2,7 @@ eval "$(LC_ALL='en_US.UTF-8' starship init zsh)"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 export PATH="$HOME/.local/bin:$HOME/.poetry/bin:$HOME/.cargo/bin:$PATH"
-export VISUAL="vim"
+export VISUAL="emacs"
 export EDITOR=$VISUAL
 export LC_ALL="en_US.UTF-8"
 alias reddit="ttrv"
