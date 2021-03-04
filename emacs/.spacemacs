@@ -56,7 +56,6 @@ This function should only modify configuration layer settings."
      ;; org
      (shell :variables
              shell-default-height 30
-             shell-default-shell 'eshell
              shell-default-position 'bottom)
      ;;spell-checking
      syntax-checking
