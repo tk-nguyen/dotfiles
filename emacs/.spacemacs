@@ -55,7 +55,7 @@ This function should only modify configuration layer settings."
           lsp-rust-server 'rust-analyzer
           lsp-rust-analyzer-server-display-inlay-hints t)
      emoji
-     ;;markdown
+     markdown
      multiple-cursors
      org
      (shell :variables
@@ -64,7 +64,7 @@ This function should only modify configuration layer settings."
      ;;spell-checking
      syntax-checking
      unicode-fonts
-     ;; version-control
+     version-control
      (treemacs :variables
                treemacs-use-follow-mode t
                treemacs-use-all-the-icons-theme t
