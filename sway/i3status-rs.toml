@@ -1,0 +1,39 @@
+theme = "bad-wolf"
+icons = "material-nf"
+
+[[block]]
+block = "keyboard_layout"
+
+[[block]]
+block = "memory"
+
+[[block]]
+block = "battery"
+driver = "upower"
+format = "{percentage*%} {time}"
+
+[[block]]
+block = "music"
+player = "spotify"
+buttons = ["prev", "play", "next"]
+on_collapsed_click = "spotify"
+
+[[block]]
+block = "sound"
+
+[[block]]
+block = "networkmanager"
+device_format = "{icon} {ap}"
+ap_format = "{ssid} {strength}"
+
+[[block]]
+block = "net"
+device = "wlp6s0"
+format = "{speed_up;M} {speed_down;M}"
+
+[[block]]
+block = "time"
+format = "%a %d/%m/%Y %T"
+interval = 1
+locale = "en_GB"
+

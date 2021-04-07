@@ -1,4 +1,4 @@
-call plug#begin(stdpath('data') . '/plugged')
+call plug#begin('~/.vim/plugged')
 
 Plug 'godlygeek/tabular'
 Plug 'vim-airline/vim-airline'
