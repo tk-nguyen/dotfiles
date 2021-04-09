@@ -22,14 +22,9 @@ on_collapsed_click = "spotify"
 block = "sound"
 
 [[block]]
-block = "networkmanager"
-device_format = "{icon} {ap}"
-ap_format = "{ssid} {strength}"
-
-[[block]]
 block = "net"
 device = "wlp6s0"
-format = "{speed_up;M} {speed_down;M}"
+format = "{ssid} {signal_strength} {speed_up;M} {speed_down;M}"
 
 [[block]]
 block = "time"

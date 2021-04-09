@@ -23,7 +23,7 @@ set $menu "wofi --allow-images --show drun"
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /usr/share/backgrounds/kde/Kokkini/contents/images/3840x2160.png fill
+output * bg /usr/share/wallpapers/Kokkini/contents/images/3840x2160.png fill
 #
 # Example configuration:
 #
@@ -47,6 +47,9 @@ exec "fcitx -r"
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +1%
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -1%
 bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+
+# Lockscreen
+bindsym $mod+Ctrl+l exec "swaylock -l -f -i /usr/share/backgrounds/gnome/Lava.jpg --font=JuliaMono"
 
 ### Idle configuration
 #
@@ -227,3 +230,4 @@ bar {
     # The default just shows the current date and time.
     status_command ~/.cargo/bin/i3status-rs ~/.config/sway/i3status-rs.toml
 }
+include ~/.config/sway/config.d/*.conf

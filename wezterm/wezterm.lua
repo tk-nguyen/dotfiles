@@ -7,7 +7,7 @@ return {
   font_size = 11.0,
   keys = {
     { key = "t", mods = "CTRL", action = wezterm.action{SpawnTab="CurrentPaneDomain"}},
-    { key = "w", mods = "CTRL", action = wezterm.action{CloseCurrentTab={confirm=false}}},
+    { key = "w", mods = "CTRL|SHIFT", action = wezterm.action{CloseCurrentTab={confirm=false}}},
     { key = "Insert", mods = "CTRL", action = wezterm.action{CopyTo="Clipboard"}},
     { key = "Insert", mods = "SHIFT", action = wezterm.action{PasteFrom="Clipboard"}},
     { key = "LeftArrow", mods = "CTRL|SHIFT", action = wezterm.action{ActivateTabRelative=-1}},
