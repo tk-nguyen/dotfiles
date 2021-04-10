@@ -1,4 +1,4 @@
-theme = "bad-wolf"
+theme = "dracula"
 icons = "material-nf"
 
 [[block]]
@@ -15,6 +15,7 @@ format = "{percentage*%} {time}"
 [[block]]
 block = "music"
 player = "spotify"
+dynamic_width = true
 buttons = ["prev", "play", "next"]
 on_collapsed_click = "spotify"
 
