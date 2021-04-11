@@ -55,7 +55,10 @@
 (setq default-input-method 'vietnamese-telex)
 (map! :leader
       :desc "Toggle input method"
-      "t i" #'toggle-input-method)
+      "o i" #'toggle-input-method)
 (map! :leader
-      (:prefix-map ("a" . "applications")
-        :desc "Telegram" "t" #'telega))
+      :desc "Telega"
+      "o t" #'telega)
+(telega-notifications-mode 1)
+(add-hook 'doom-init-ui-hook #'spacemacs/home)
+(remove-hook 'org-load-hook #'+org-init-keybinds-h)
