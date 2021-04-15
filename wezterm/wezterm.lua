@@ -8,6 +8,7 @@ return {
   keys = {
     { key = "t", mods = "CTRL", action = wezterm.action{SpawnTab="CurrentPaneDomain"}},
     { key = "w", mods = "CTRL|SHIFT", action = wezterm.action{CloseCurrentTab={confirm=false}}},
+    { key = "q", mods = "CTRL|SHIFT", action = wezterm.action{CloseCurrentPane={confirm=false}}},
     { key = "Insert", mods = "CTRL", action = wezterm.action{CopyTo="Clipboard"}},
     { key = "Insert", mods = "SHIFT", action = wezterm.action{PasteFrom="Clipboard"}},
     { key = "LeftArrow", mods = "CTRL|SHIFT", action = wezterm.action{ActivateTabRelative=-1}},
