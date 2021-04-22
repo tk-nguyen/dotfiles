@@ -54,11 +54,11 @@
 ;; they are implemented.
 (setq default-input-method 'vietnamese-telex)
 (map! :leader
+      (:prefix-map ("a" . "applications")
       :desc "Toggle input method"
-      "o i" #'toggle-input-method)
+      "i" #'toggle-input-method))
 (map! :leader
+      (:prefix-map ("a" . "applications")
       :desc "Telega"
-      "o t" #'telega)
+      "t" #'telega))
 (telega-notifications-mode 1)
-(add-hook 'doom-init-ui-hook #'spacemacs/home)
-(remove-hook 'org-load-hook #'+org-init-keybinds-h)

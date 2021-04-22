@@ -33,12 +33,12 @@ This function should only modify configuration layer settings."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(html
-     javascript
      csv
      yaml
      lua
      systemd
      rust
+     json
      emoji
      (python :variables python-lsp-server 'pyright)
      ;; ----------------------------------------------------------------
@@ -56,11 +56,11 @@ This function should only modify configuration layer settings."
           lsp-rust-analyzer-server-display-inlay-hints t)
      emoji
      markdown
-     multiple-cursors
      org
      (shell :variables
              shell-default-height 30
-             shell-default-position 'bottom)
+             shell-default-position 'bottom
+             shell-default-shell 'vterm)
      ;;spell-checking
      syntax-checking
      unicode-fonts
@@ -70,7 +70,6 @@ This function should only modify configuration layer settings."
                treemacs-use-all-the-icons-theme t
                treemacs-use-filewatch-mode t))
 
-
    ;; List of additional packages that will be installed without being wrapped
    ;; in a layer (generally the packages are installed only and should still be
    ;; loaded using load/require/use-package in the user-config section below in
@@ -79,7 +78,7 @@ This function should only modify configuration layer settings."
    ;; `dotspacemacs/user-config'. To use a local version of a package, use the
    ;; `:location' property: '(your-package :location "~/path/to/your-package/")
    ;; Also include the dependencies as they will not be resolved automatically.
-   dotspacemacs-additional-packages '(telega simpleclip)
+   dotspacemacs-additional-packages '(telega highlight-indent-guides simpleclip)
 
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
@@ -538,10 +537,26 @@ configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
   (setq default-input-method "vietnamese-telex")
+
+  (setq highlight-indent-guides-method 'character)
+  (add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
+
   (spacemacs/set-leader-keys "ot" 'telega)
   (spacemacs/set-leader-keys "oi" 'toggle-input-method)
-  (telega-notifications-mode 1)
-  )
+
+  (simpleclip-mode 1)
+
+  (defun telega-chat-mode-completion ()
+    (set (make-local-variable 'company-backends)
+        (append (list 'telega-company-emoji
+                    'telega-company-username
+                    'telega-company-hashtag
+                    'telega-company-botcmd)
+              (when (telega-chat-bot-p telega-chatbuf--chat)
+                '(telega-company-botcmd))))
+    (company-mode 1))
+  (add-hook 'telega-chat-mode-hook 'telega-chat-mode-completion)
+  (telega-notifications-mode 1))
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.

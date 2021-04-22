@@ -23,5 +23,6 @@ return {
     { key = "2", mods = "CTRL", action = wezterm.action{ActivateTab=1}},
     { key = "3", mods = "CTRL", action = wezterm.action{ActivateTab=2}},
     { key = "4", mods = "CTRL", action = wezterm.action{ActivateTab=3}},
+
   },
 }
