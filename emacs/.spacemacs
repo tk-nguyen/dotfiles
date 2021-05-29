@@ -39,8 +39,12 @@ This function should only modify configuration layer settings."
      systemd
      rust
      json
+     (terraform :variables
+                terraform-auto-format-on-save t
+                lsp-terraform-server '("terraform-ls" "serve"))
      emoji
      (python :variables python-lsp-server 'pyright)
+     (docker :variables docker-dockerfile-backend 'lsp)
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press `SPC f e R' (Vim style) or
