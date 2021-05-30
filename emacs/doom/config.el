@@ -54,11 +54,13 @@
 ;; they are implemented.
 (setq default-input-method 'vietnamese-telex)
 (map! :leader
-      (:prefix-map ("a" . "applications")
+      (:prefix-map ("a" . "custom")
       :desc "Toggle input method"
       "i" #'toggle-input-method))
 (map! :leader
-      (:prefix-map ("a" . "applications")
+      (:prefix-map ("a" . "custom")
       :desc "Telega"
       "t" #'telega))
 (telega-notifications-mode 1)
+(setq doom-themes-treemacs-theme "doom-colors")
+(setq doom-variable-pitch-font (font-spec :family "JuliaMono" :size 14))
