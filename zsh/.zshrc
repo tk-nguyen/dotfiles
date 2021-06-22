@@ -73,6 +73,7 @@ export ZSH="/home/thainguyen/.oh-my-zsh"
 plugins=(colored-man-pages zsh-syntax-highlighting zsh-completions zsh-autosuggestions)
 
 autoload -U compinit && compinit
+autoload -U +X bashcompinit && bashcompinit
 
 source $ZSH/oh-my-zsh.sh
 
@@ -104,7 +105,7 @@ source $ZSH/oh-my-zsh.sh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-export PATH="$PATH:$HOME/.local/bin:$HOME/.cargo/bin"
+export PATH="$PATH:$HOME/.local/bin:$HOME/.cargo/bin:$HOME/.emacs.d/bin"
 export VISUAL="emacs"
 export EDITOR=$VISUAL
 
@@ -114,5 +115,4 @@ alias vim="nvim"
 alias dig="drill"
 eval "$(starship init zsh)"
 
-autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/bin/terraform terraform

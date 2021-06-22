@@ -64,3 +64,5 @@
 (telega-notifications-mode 1)
 (setq doom-themes-treemacs-theme "doom-colors")
 (setq doom-variable-pitch-font (font-spec :family "JuliaMono" :size 14))
+(setq lsp-rust-analyzer-inlay-hints-mode 't)
+(setq lsp-rust-analyzer-server-display-inlay-hints 't)
