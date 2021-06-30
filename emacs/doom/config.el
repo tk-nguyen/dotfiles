@@ -66,3 +66,8 @@
 (setq doom-variable-pitch-font (font-spec :family "JuliaMono" :size 14))
 (setq lsp-rust-analyzer-inlay-hints-mode 't)
 (setq lsp-rust-analyzer-server-display-inlay-hints 't)
+(use-package! tree-sitter
+  :config
+  (require 'tree-sitter-langs)
+  (global-tree-sitter-mode)
+  (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode))

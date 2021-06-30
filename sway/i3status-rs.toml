@@ -1,5 +1,5 @@
 theme = "bad-wolf"
-icons = "material-nf"
+icons = "awesome"
 
 [[block]]
 block = "keyboard_layout"
