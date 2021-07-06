@@ -66,6 +66,7 @@
 (setq doom-variable-pitch-font (font-spec :family "JuliaMono" :size 14))
 (setq lsp-rust-analyzer-inlay-hints-mode 't)
 (setq lsp-rust-analyzer-server-display-inlay-hints 't)
+(setq lsp-ui-peek-enable 't)
 (use-package! tree-sitter
   :config
   (require 'tree-sitter-langs)
