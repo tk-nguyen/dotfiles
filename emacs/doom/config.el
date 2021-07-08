@@ -52,7 +52,6 @@
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
-(setq default-input-method 'vietnamese-telex)
 (map! :leader
       (:prefix-map ("a" . "custom")
       :desc "Toggle input method"
@@ -61,12 +60,16 @@
       (:prefix-map ("a" . "custom")
       :desc "Telega"
       "t" #'telega))
+
 (telega-notifications-mode 1)
+
+(setq default-input-method 'vietnamese-telex)
 (setq doom-themes-treemacs-theme "doom-colors")
 (setq doom-variable-pitch-font (font-spec :family "JuliaMono" :size 14))
 (setq lsp-rust-analyzer-inlay-hints-mode 't)
 (setq lsp-rust-analyzer-server-display-inlay-hints 't)
 (setq lsp-ui-peek-enable 't)
+
 (use-package! tree-sitter
   :config
   (require 'tree-sitter-langs)
