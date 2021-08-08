@@ -52,6 +52,7 @@
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
+(setq default-input-method 'vietnamese-telex)
 (map! :leader
       (:prefix-map ("a" . "custom")
       :desc "Toggle input method"
@@ -60,18 +61,29 @@
       (:prefix-map ("a" . "custom")
       :desc "Telega"
       "t" #'telega))
-
 (telega-notifications-mode 1)
 
-(setq default-input-method 'vietnamese-telex)
 (setq doom-themes-treemacs-theme "doom-colors")
 (setq doom-variable-pitch-font (font-spec :family "JuliaMono" :size 14))
 (setq lsp-rust-analyzer-inlay-hints-mode 't)
 (setq lsp-rust-analyzer-server-display-inlay-hints 't)
 (setq lsp-ui-peek-enable 't)
+(setq poetry-tracking-strategy 'projectile)
 
+;; Use tree-sitter
 (use-package! tree-sitter
   :config
   (require 'tree-sitter-langs)
   (global-tree-sitter-mode)
   (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode))
+
+;; Diff the doom configs with the example
+(defun doom/ediff-init-and-example ()
+  "ediff the current `init.el' with the example in doom-emacs-dir"
+  (interactive)
+  (ediff-files (concat doom-private-dir "init.el")
+               (concat doom-emacs-dir "init.example.el")))
+
+(define-key! help-map
+  "di"   #'doom/ediff-init-and-example
+  )
