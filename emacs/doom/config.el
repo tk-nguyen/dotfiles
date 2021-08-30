@@ -55,20 +55,37 @@
 (setq default-input-method 'vietnamese-telex)
 (map! :leader
       (:prefix-map ("a" . "custom")
-      :desc "Toggle input method"
-      "i" #'toggle-input-method))
+       :desc "Toggle input method"
+       "i" #'toggle-input-method))
 (map! :leader
       (:prefix-map ("a" . "custom")
-      :desc "Telega"
-      "t" #'telega))
+       :desc "Telega"
+       "t" #'telega))
+
+;; Add mouse support to vertico
+(vertico-mouse-mode 1)
+
+;; Notification
 (telega-notifications-mode 1)
+
+;; Seperate the clipboard madness
+(simpleclip-mode 1)
 
 (setq doom-themes-treemacs-theme "doom-colors")
 (setq doom-variable-pitch-font (font-spec :family "JuliaMono" :size 14))
 (setq lsp-rust-analyzer-inlay-hints-mode 't)
 (setq lsp-rust-analyzer-server-display-inlay-hints 't)
 (setq lsp-ui-peek-enable 't)
-(setq poetry-tracking-strategy 'projectile)
+(setq lsp-terraform-server '("terraform-ls" "serve"))
+(setq poetry-tracking-strategy 'switch-buffer)
+
+;; LSP over TRAMP
+(after! lsp-mode
+  (lsp-register-client
+   (make-lsp-client :new-connection (lsp-tramp-connection "clangd")
+                    :major-modes '(c++-mode)
+                    :remote? t
+                    :server-id 'clangd-remote)))
 
 ;; Use tree-sitter
 (use-package! tree-sitter
@@ -87,3 +104,6 @@
 (define-key! help-map
   "di"   #'doom/ediff-init-and-example
   )
+
+;; Run lsp after terraform-mode
+(add-hook! 'terraform-mode-hook #'lsp)
