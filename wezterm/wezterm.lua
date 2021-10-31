@@ -2,7 +2,7 @@ local wezterm = require 'wezterm';
 
 return {
   color_scheme = "Dracula+",
-  font = wezterm.font("JuliaMono"),-- {bold=false, italic=false}),
+  font = wezterm.font("JuliaMono"),
   window_close_confirmation = "NeverPrompt",
   font_size = 11.0,
   keys = {
