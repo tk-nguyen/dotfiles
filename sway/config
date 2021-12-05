@@ -41,7 +41,7 @@ font "JuliaMono 10"
 exec mako
 
 # Input method
-exec "fcitx -r"
+exec "fcitx5 -d"
 
 # Volume
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +1%

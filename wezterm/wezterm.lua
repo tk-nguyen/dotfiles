@@ -4,6 +4,13 @@ return {
   color_scheme = "Dracula+",
   font = wezterm.font("JuliaMono"),
   window_close_confirmation = "NeverPrompt",
+  enable_scroll_bar = true,
+  window_padding = {
+    left = "0cell",
+    right = "0cell",
+    top = "0cell",
+    bottom = "0cell",
+  },
   font_size = 11.0,
   keys = {
     { key = "t", mods = "CTRL", action = wezterm.action{SpawnTab="CurrentPaneDomain"}},

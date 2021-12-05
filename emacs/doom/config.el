@@ -63,7 +63,7 @@
        "t" #'telega))
 
 ;; Add mouse support to vertico
-(vertico-mouse-mode 1)
+;; (vertico-mouse-mode 1)
 
 ;; Notification
 (telega-notifications-mode 1)
