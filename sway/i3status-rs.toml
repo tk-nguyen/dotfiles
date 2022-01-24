@@ -11,6 +11,7 @@ block = "memory"
 block = "battery"
 driver = "upower"
 format = "{percentage} {time}"
+device = "DisplayDevice"
 
 [[block]]
 block = "music"

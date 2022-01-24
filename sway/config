@@ -49,7 +49,7 @@ bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -1%
 bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 
 # Lockscreen
-bindsym $mod+Ctrl+l exec "swaylock -l -f -i /usr/share/backgrounds/gnome/Lava.jpg --font=JuliaMono"
+bindsym $mod+Ctrl+l exec "swaylock -l -f -i /usr/share/backgrounds/gnome/Blobs.svg --font=JuliaMono"
 
 ### Idle configuration
 #

@@ -113,6 +113,7 @@ alias reddit="ttrv"
 alias ls="exa -hg"
 alias vim="nvim"
 alias dig="drill"
+complete -o nospace -C /usr/bin/terraform terraform
 eval "$(starship init zsh)"
 
-complete -o nospace -C /usr/local/bin/terraform terraform
+

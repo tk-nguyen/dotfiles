@@ -75,6 +75,7 @@
 (setq doom-variable-pitch-font (font-spec :family "JuliaMono" :size 14))
 (setq lsp-rust-analyzer-inlay-hints-mode 't)
 (setq lsp-rust-analyzer-server-display-inlay-hints 't)
+(setq lsp-rust-analyzer-proc-macro-enable 't)
 (setq lsp-ui-peek-enable 't)
 (setq lsp-terraform-server '("terraform-ls" "serve"))
 (setq poetry-tracking-strategy 'switch-buffer)
