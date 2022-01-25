@@ -70,10 +70,9 @@ export ZSH="/home/thainguyen/.oh-my-zsh"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(colored-man-pages zsh-syntax-highlighting zsh-completions zsh-autosuggestions)
+plugins=(colored-man-pages zsh-syntax-highlighting zsh-completions zsh-autosuggestions zsh-history-substring-search)
 
 autoload -U compinit && compinit
-autoload -U +X bashcompinit && bashcompinit
 
 source $ZSH/oh-my-zsh.sh
 
@@ -82,7 +81,7 @@ source $ZSH/oh-my-zsh.sh
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -113,7 +112,6 @@ alias reddit="ttrv"
 alias ls="exa -hg"
 alias vim="nvim"
 alias dig="drill"
-complete -o nospace -C /usr/bin/terraform terraform
 eval "$(starship init zsh)"
 
 
