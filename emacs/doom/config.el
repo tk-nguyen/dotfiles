@@ -68,7 +68,7 @@
 ;; Notification
 (telega-notifications-mode 1)
 
-;; Seperate the clipboard madness
+;; Copy paste madness
 (simpleclip-mode 1)
 
 (setq doom-themes-treemacs-theme "doom-colors")
@@ -108,3 +108,6 @@
 
 ;; Run lsp after terraform-mode
 (add-hook! 'terraform-mode-hook #'lsp)
+
+;; Use Apheleia for formatting
+(apheleia-global-mode +1)

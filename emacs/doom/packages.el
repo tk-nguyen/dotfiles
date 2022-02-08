@@ -10,6 +10,7 @@
 (package! telega)
 (package! tree-sitter)
 (package! tree-sitter-langs)
+(package! apheleia)
 (package! simpleclip)
 ;; (package! vertico-mouse :recipe (:host github :repo "minad/vertico" :files ("extensions/vertico-mouse.el")))
 
