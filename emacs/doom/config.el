@@ -108,6 +108,3 @@
 
 ;; Run lsp after terraform-mode
 (add-hook! 'terraform-mode-hook #'lsp)
-
-;; Use Apheleia for formatting
-(apheleia-global-mode +1)
