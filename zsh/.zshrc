@@ -111,7 +111,7 @@ export EDITOR=$VISUAL
 alias ls="exa -hg"
 alias vim="nvim"
 alias dig="drill"
-eval "$(starship init zsh)"
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/bin/terraform terraform
+eval "$(starship init zsh)"
