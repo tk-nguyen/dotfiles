@@ -76,7 +76,7 @@
 (setq lsp-rust-analyzer-inlay-hints-mode 't)
 (setq lsp-rust-analyzer-server-display-inlay-hints 't)
 (setq lsp-rust-analyzer-proc-macro-enable 't)
-(setq lsp-ui-peek-enable 't)
+(setq lsp-ui-doc-show-with-cursor 't)
 (setq lsp-terraform-server '("terraform-ls" "serve"))
 (setq poetry-tracking-strategy 'switch-buffer)
 
@@ -108,3 +108,6 @@
 
 ;; Run lsp after terraform-mode
 (add-hook! 'terraform-mode-hook #'lsp)
+
+;; Run lsp after Dockerfile
+(add-hook! 'dockerfile-mode-hook #'lsp)

@@ -108,13 +108,10 @@ export PATH="$PATH:$HOME/.local/bin:$HOME/.cargo/bin:$HOME/.emacs.d/bin"
 export VISUAL="emacs"
 export EDITOR=$VISUAL
 
-alias reddit="ttrv"
 alias ls="exa -hg"
 alias vim="nvim"
 alias dig="drill"
 eval "$(starship init zsh)"
-
-
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/bin/terraform terraform
