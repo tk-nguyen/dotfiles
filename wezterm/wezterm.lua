@@ -1,7 +1,9 @@
 local wezterm = require 'wezterm';
+local dracula = require 'dracula';
 
 return {
-  color_scheme = "Dracula+",
+  colors = dracula,
+  use_fancy_tab_bar = false,
   font = wezterm.font("JuliaMono"),
   window_close_confirmation = "NeverPrompt",
   enable_scroll_bar = true,

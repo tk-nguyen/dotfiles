@@ -108,7 +108,7 @@ export PATH="$PATH:$HOME/.local/bin:$HOME/.cargo/bin:$HOME/.emacs.d/bin"
 export VISUAL="emacs"
 export EDITOR=$VISUAL
 
-alias ls="exa -hg"
+alias ls="exa -hg --icons"
 alias vim="nvim"
 alias dig="drill"
 

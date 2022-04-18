@@ -14,75 +14,13 @@ k9s:
     fullScreenLogs: false
     textWrap: false
     showTime: false
-  currentContext: arn:aws:eks:ap-southeast-1:405005540788:cluster/nguyen_eks
-  currentCluster: arn:aws:eks:ap-southeast-1:405005540788:cluster/nguyen_eks
+  currentContext: arn:aws:eks:us-east-1:242307434447:cluster/demo-cilium
+  currentCluster: arn:aws:eks:us-east-1:242307434447:cluster/demo-cilium
   clusters:
-    arn:aws:eks:ap-southeast-1:405005540788:cluster/eks-lab:
+    arn:aws:eks:us-east-1:242307434447:cluster/demo-cilium:
       namespace:
         active: all
         favorites:
-        - ingress-nginx
-        - kube-system
-        - all
-        - default
-      view:
-        active: ctx
-      featureGates:
-        nodeShell: false
-      shellPod:
-        image: busybox:1.31
-        command: []
-        args: []
-        namespace: default
-        limits:
-          cpu: 100m
-          memory: 100Mi
-      portForwardAddress: localhost
-    arn:aws:eks:ap-southeast-1:405005540788:cluster/eks_lab:
-      namespace:
-        active: all
-        favorites:
-        - ingress-nginx
-        - all
-        - kube-system
-        - default
-      view:
-        active: pod
-      featureGates:
-        nodeShell: false
-      shellPod:
-        image: busybox:1.31
-        command: []
-        args: []
-        namespace: default
-        limits:
-          cpu: 100m
-          memory: 100Mi
-      portForwardAddress: localhost
-    arn:aws:eks:ap-southeast-1:405005540788:cluster/minhda_eks_cluster:
-      namespace:
-        active: all
-        favorites:
-        - ingress-controller
-        - default
-      view:
-        active: svc
-      featureGates:
-        nodeShell: false
-      shellPod:
-        image: busybox:1.31
-        command: []
-        args: []
-        namespace: default
-        limits:
-          cpu: 100m
-          memory: 100Mi
-      portForwardAddress: localhost
-    arn:aws:eks:ap-southeast-1:405005540788:cluster/nguyen_eks:
-      namespace:
-        active: all
-        favorites:
-        - istio-ingress
         - all
         - default
       view:

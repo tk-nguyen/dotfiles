@@ -3,7 +3,6 @@
 ;; Place your private configuration here! Remember, you do not need to run 'doom
 ;; sync' after modifying this file!
 
-
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets.
 (setq user-full-name "Thai Nguyen"
@@ -73,12 +72,18 @@
 
 (setq doom-themes-treemacs-theme "doom-colors")
 (setq doom-variable-pitch-font (font-spec :family "JuliaMono" :size 14))
-(setq lsp-rust-analyzer-inlay-hints-mode 't)
-(setq lsp-rust-analyzer-server-display-inlay-hints 't)
-(setq lsp-rust-analyzer-proc-macro-enable 't)
-(setq lsp-ui-doc-show-with-cursor 't)
-(setq lsp-terraform-server '("terraform-ls" "serve"))
+
+(after! lsp-mode
+  (setq lsp-rust-analyzer-inlay-hints-mode 't)
+  (setq lsp-rust-analyzer-server-display-inlay-hints 't)
+  (setq lsp-rust-analyzer-proc-macro-enable 't)
+  (setq lsp-ui-doc-show-with-cursor 't)
+  (setq lsp-terraform-server '("terraform-ls" "serve"))
+  ;; Enable breadcrumb
+  (setq lsp-headerline-breadcrumb-enable t))
+
 (setq poetry-tracking-strategy 'switch-buffer)
+(setq org-html-checkbox-type 'html)
 
 ;; LSP over TRAMP
 (after! lsp-mode
@@ -108,6 +113,5 @@
 
 ;; Run lsp after terraform-mode
 (add-hook! 'terraform-mode-hook #'lsp)
-
 ;; Run lsp after Dockerfile
 (add-hook! 'dockerfile-mode-hook #'lsp)
