@@ -7,7 +7,6 @@
 
 
 ;; To install SOME-PACKAGE from MELPA, ELPA or emacsmirror:
-(package! telega)
 (package! tree-sitter)
 (package! tree-sitter-langs)
 (package! simpleclip)

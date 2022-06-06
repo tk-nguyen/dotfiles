@@ -18,13 +18,15 @@
 ;;
 ;; They all accept either a font-spec, font string ("Input Mono-12"), or xlfd
 ;; font string. You generally only need these two:
-(setq doom-font (font-spec :family "JuliaMono" :size 14))
-;;       doom-variable-pitch-font (font-spec :family "sans" :size 13))
+(setq doom-font (font-spec :family "JuliaMono" :size 17)
+      doom-variable-pitch-font (font-spec :family "Iosevka Aile" :size 18)
+      doom-unicode-font doom-font)
 
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
 (setq doom-theme 'doom-dracula)
+(setq doom-themes-treemacs-theme "doom-colors")
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
@@ -51,27 +53,13 @@
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
-(setq default-input-method 'vietnamese-telex)
-(map! :leader
-      (:prefix-map ("a" . "custom")
-       :desc "Toggle input method"
-       "i" #'toggle-input-method))
-(map! :leader
-      (:prefix-map ("a" . "custom")
-       :desc "Telega"
-       "t" #'telega))
 
 ;; Add mouse support to vertico
 ;; (vertico-mouse-mode 1)
 
-;; Notification
-(telega-notifications-mode 1)
-
 ;; Copy paste madness
 (simpleclip-mode 1)
 
-(setq doom-themes-treemacs-theme "doom-colors")
-(setq doom-variable-pitch-font (font-spec :family "JuliaMono" :size 14))
 
 (after! lsp-mode
   (setq lsp-rust-analyzer-inlay-hints-mode 't)
