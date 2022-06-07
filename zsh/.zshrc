@@ -72,8 +72,7 @@ export ZSH="/home/thainguyen/.oh-my-zsh"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(colored-man-pages zsh-syntax-highlighting zsh-completions zsh-autosuggestions zsh-history-substring-search)
 
-autoload -U compinit && compinit
-
+fpath+="${ZSH_CUSTOM:-"$ZSH/custom"}/plugins/zsh-completions/src"
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
