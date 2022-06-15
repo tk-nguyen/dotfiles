@@ -104,11 +104,10 @@ export LANG=en_US.UTF-8
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 export PATH="$PATH:$HOME/.local/bin:$HOME/.cargo/bin:$HOME/.emacs.d/bin"
-export VISUAL="emacs"
+export VISUAL="vim"
 export EDITOR=$VISUAL
 
 alias ls="exa -hg --icons"
-alias vim="nvim"
 alias dig="drill"
 
 autoload -U +X bashcompinit && bashcompinit
