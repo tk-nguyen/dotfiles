@@ -18,8 +18,8 @@
 ;;
 ;; They all accept either a font-spec, font string ("Input Mono-12"), or xlfd
 ;; font string. You generally only need these two:
-(setq doom-font (font-spec :family "JuliaMono" :size 17)
-      doom-variable-pitch-font (font-spec :family "Iosevka Aile" :size 18)
+(setq doom-font (font-spec :family "JuliaMono" :size 14)
+      doom-variable-pitch-font (font-spec :family "Iosevka Aile" :size 14)
       doom-unicode-font doom-font)
 
 ;; There are two ways to load a theme. Both assume the theme is installed and
@@ -84,9 +84,7 @@
 ;; Use tree-sitter
 (use-package! tree-sitter
   :config
-  (require 'tree-sitter-langs)
-  (global-tree-sitter-mode)
-  (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode))
+  (global-tree-sitter-mode))
 
 ;; Diff the doom configs with the example
 (defun doom/ediff-init-and-example ()
