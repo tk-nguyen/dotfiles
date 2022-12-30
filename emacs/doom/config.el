@@ -54,12 +54,8 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
-;; Add mouse support to vertico
-;; (vertico-mouse-mode 1)
-
 ;; Copy paste madness
 (simpleclip-mode 1)
-
 
 (after! lsp-mode
   (setq lsp-rust-analyzer-inlay-hints-mode 't)
@@ -67,30 +63,22 @@
   (setq lsp-rust-analyzer-proc-macro-enable 't)
   (setq lsp-ui-doc-show-with-cursor 't)
   (setq lsp-terraform-server '("terraform-ls" "serve"))
-  ;; Enable breadcrumb
-  (setq lsp-headerline-breadcrumb-enable t))
+  (setq lsp-headerline-breadcrumb-enable 't))
 
 (setq poetry-tracking-strategy 'switch-buffer)
 (setq org-html-checkbox-type 'html)
 
-;; LSP over TRAMP
-(after! lsp-mode
-  (lsp-register-client
-   (make-lsp-client :new-connection (lsp-tramp-connection "clangd")
-                    :major-modes '(c++-mode)
-                    :remote? t
-                    :server-id 'clangd-remote)))
-
 ;; Use tree-sitter
 (use-package! tree-sitter
   :config
-  (global-tree-sitter-mode))
+  (global-tree-sitter-mode)
+  (add-hook! 'tree-sitter-after-on-hook #'tree-sitter-hl-mode))
 
 ;; Diff the doom configs with the example
 (defun doom/ediff-init-and-example ()
   "ediff the current `init.el' with the example in doom-emacs-dir"
   (interactive)
-  (ediff-files (concat doom-private-dir "init.el")
+  (ediff-files (concat doom-user-dir "init.el")
                (concat doom-emacs-dir "init.example.el")))
 
 (define-key! help-map
@@ -98,6 +86,20 @@
   )
 
 ;; Run lsp after terraform-mode
-(add-hook! 'terraform-mode-hook #'lsp)
+(add-hook! 'terraform-mode-hook #'lsp-deferred)
 ;; Run lsp after Dockerfile
-(add-hook! 'dockerfile-mode-hook #'lsp)
+(add-hook! 'dockerfile-mode-hook #'lsp-deferred)
+
+;; Use apheleia formatter
+(use-package! apheleia
+  :config
+  (apheleia-global-mode +1))
+
+;; Use delta for magit diff
+(use-package! magit-delta
+  :hook (magit-mode . magit-delta-mode)
+  :config
+    (setq magit-delta-delta-args
+        '("--24-bit-color" "always"
+          "--features" "magit-delta"
+          "--color-only")))
