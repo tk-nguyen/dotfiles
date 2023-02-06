@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/thainguyen/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -70,7 +70,7 @@ export ZSH="/home/thainguyen/.oh-my-zsh"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(colored-man-pages zsh-syntax-highlighting zsh-completions zsh-autosuggestions zsh-history-substring-search)
+plugins=(colored-man-pages asdf zsh-syntax-highlighting zsh-autosuggestions zsh-history-substring-search)
 
 fpath+="${ZSH_CUSTOM:-"$ZSH/custom"}/plugins/zsh-completions/src"
 source $ZSH/oh-my-zsh.sh
@@ -104,11 +104,11 @@ export LANG=en_US.UTF-8
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 export PATH="$PATH:$HOME/.local/bin:$HOME/.cargo/bin:$HOME/.emacs.d/bin"
-export VISUAL="vim"
+export VISUAL="nvim"
 export EDITOR=$VISUAL
 
 alias ls="exa -hg --icons"
-alias dig="drill"
+alias vim=nvim
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/bin/terraform terraform
