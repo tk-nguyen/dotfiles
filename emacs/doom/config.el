@@ -19,7 +19,7 @@
 ;; They all accept either a font-spec, font string ("Input Mono-12"), or xlfd
 ;; font string. You generally only need these two:
 (setq doom-font (font-spec :family "JuliaMono" :size 14)
-      doom-variable-pitch-font (font-spec :family "Iosevka Aile" :size 14)
+      doom-variable-pitch-font (font-spec :family "Inter V" :size 14)
       doom-unicode-font doom-font)
 
 ;; There are two ways to load a theme. Both assume the theme is installed and
@@ -55,15 +55,19 @@
 ;; they are implemented.
 
 ;; Copy paste madness
-(simpleclip-mode 1)
+(use-package! simpleclip
+  :config
+  (simpleclip-mode 1))
 
 (after! lsp-mode
-  (setq lsp-rust-analyzer-inlay-hints-mode 't)
-  (setq lsp-rust-analyzer-server-display-inlay-hints 't)
-  (setq lsp-rust-analyzer-proc-macro-enable 't)
-  (setq lsp-ui-doc-show-with-cursor 't)
-  (setq lsp-terraform-server '("terraform-ls" "serve"))
-  (setq lsp-headerline-breadcrumb-enable 't))
+  (setq! lsp-rust-analyzer-inlay-hints-mode 't)
+  (setq! lsp-rust-analyzer-server-display-inlay-hints 't)
+  (setq! lsp-rust-analyzer-proc-macro-enable 't)
+  (setq! lsp-ui-doc-show-with-cursor 't)
+  ;; (setq lsp-terraform-server '("terraform-ls" "serve"))
+  ;; (setq lsp-semantic-tokens-enable t)
+  ;; (setq lsp-semantic-tokens-honor-refresh-requests t)
+  (setq! lsp-headerline-breadcrumb-enable 't))
 
 (setq poetry-tracking-strategy 'switch-buffer)
 (setq org-html-checkbox-type 'html)
@@ -99,7 +103,7 @@
 (use-package! magit-delta
   :hook (magit-mode . magit-delta-mode)
   :config
-    (setq magit-delta-delta-args
+    (setq! magit-delta-delta-args
         '("--24-bit-color" "always"
           "--features" "magit-delta"
           "--color-only")))
