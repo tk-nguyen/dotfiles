@@ -30,7 +30,7 @@
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
-(setq org-directory "~/org/")
+(setq org-directory "~/work-stuff/notes")
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -90,9 +90,11 @@
   )
 
 ;; Run lsp after terraform-mode
-(add-hook! 'terraform-mode-hook #'lsp-deferred)
-;; Run lsp after Dockerfile
-(add-hook! 'dockerfile-mode-hook #'lsp-deferred)
+(use-package! terraform-mode
+  :hook (terraform-mode . lsp-deferred))
+;; Run lsp after GFM mode
+(use-package! markdown-mode
+  :hook (markdown-mode . lsp-deferred))
 
 ;; Use apheleia formatter
 (use-package! apheleia
@@ -107,3 +109,8 @@
         '("--24-bit-color" "always"
           "--features" "magit-delta"
           "--color-only")))
+
+;; Use go language for tpl files
+(after! web-mode
+  (add-to-list 'web-mode-engines-alist
+      '("go" . "\\.tpl\\'")))
