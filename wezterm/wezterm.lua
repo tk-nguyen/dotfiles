@@ -1,30 +1,44 @@
-local wezterm = require 'wezterm';
-local dracula = require 'dracula';
+-- Pull in the wezterm API
+local wezterm = require("wezterm")
 
-return {
-  colors = dracula,
-  use_fancy_tab_bar = false,
-  font = wezterm.font("JuliaMono"),
-  window_close_confirmation = "NeverPrompt",
-  enable_scroll_bar = true,
-  window_padding = {
-    left = "0cell",
-    right = "0cell",
-    top = "0cell",
-    bottom = "0cell",
-  },
-  font_size = 11.0,
-  keys = {
-    { key = "t", mods = "CTRL", action = wezterm.action{SpawnTab="CurrentPaneDomain"}},
-    { key = "w", mods = "CTRL|SHIFT", action = wezterm.action{CloseCurrentTab={confirm=false}}},
-    { key = "q", mods = "CTRL|SHIFT", action = wezterm.action{CloseCurrentPane={confirm=false}}},
-    { key = "Insert", mods = "CTRL", action = wezterm.action{CopyTo="Clipboard"}},
-    { key = "Insert", mods = "SHIFT", action = wezterm.action{PasteFrom="Clipboard"}},
-    { key = "LeftArrow", mods = "CTRL|SHIFT", action = wezterm.action{ActivateTabRelative=-1}},
-    { key = "RightArrow", mods = "CTRL|SHIFT", action = wezterm.action{ActivateTabRelative=1}},
-    { key = "\"", mods = "CTRL|ALT", action = wezterm.action{SplitVertical={domain="CurrentPaneDomain"}}},
-    { key = "%", mods = "CTRL|ALT", action = wezterm.action{SplitHorizontal={domain="CurrentPaneDomain"}}},
-    { key = "PageUp", mods = "CTRL|SHIFT", action = wezterm.action{MoveTabRelative=-1}},
-    { key = "PageDown", mods = "CTRL|SHIFT", action = wezterm.action{MoveTabRelative=1}},
-  },
+-- Pull in the dracula theme
+local dracula = require("dracula")
+
+-- This table will hold the configuration.
+local config = {}
+
+-- In newer versions of wezterm, use the config_builder which will
+-- help provide clearer error messages
+if wezterm.config_builder then
+	config = wezterm.config_builder()
+end
+
+-- This is where you actually apply your config choices
+config.colors = dracula
+config.use_fancy_tab_bar = false
+config.font = wezterm.font("JuliaMono")
+config.window_close_confirmation = "NeverPrompt"
+config.enable_scroll_bar = true
+config.window_padding = {
+	left = "0cell",
+	right = "0cell",
+	top = "0cell",
+	bottom = "0cell",
 }
+config.font_size = 14.1
+config.keys = {
+	{ key = "t", mods = "CTRL", action = wezterm.action.SpawnTab("CurrentPaneDomain") },
+	{ key = "w", mods = "CTRL|SHIFT", action = wezterm.action.CloseCurrentTab({ confirm = false }) },
+	{ key = "q", mods = "CTRL|SHIFT", action = wezterm.action.CloseCurrentPane({ confirm = false }) },
+	{ key = "Insert", mods = "CTRL", action = wezterm.action.CopyTo("Clipboard") },
+	{ key = "Insert", mods = "SHIFT", action = wezterm.action.PasteFrom("Clipboard") },
+	{ key = "LeftArrow", mods = "CTRL|SHIFT", action = wezterm.action.ActivateTabRelative(-1) },
+	{ key = "RightArrow", mods = "CTRL|SHIFT", action = wezterm.action.ActivateTabRelative(1) },
+	{ key = '"', mods = "CTRL|ALT", action = wezterm.action.SplitVertical({ domain = "CurrentPaneDomain" }) },
+	{ key = "%", mods = "CTRL|ALT", action = wezterm.action.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
+	{ key = "PageUp", mods = "CTRL|SHIFT", action = wezterm.action.MoveTabRelative(-1) },
+	{ key = "PageDown", mods = "CTRL|SHIFT", action = wezterm.action.MoveTabRelative(1) },
+}
+
+-- and finally, return the configuration to wezterm
+return config
