@@ -1,9 +1,6 @@
 -- Pull in the wezterm API
 local wezterm = require("wezterm")
 
--- Pull in the dracula theme
-local dracula = require("dracula")
-
 -- This table will hold the configuration.
 local config = {}
 
@@ -14,7 +11,7 @@ if wezterm.config_builder then
 end
 
 -- This is where you actually apply your config choices
-config.colors = dracula
+config.color_scheme = "Dracula (Official)"
 config.use_fancy_tab_bar = false
 config.font = wezterm.font("JuliaMono")
 config.window_close_confirmation = "NeverPrompt"
@@ -28,6 +25,7 @@ config.window_padding = {
 config.font_size = 14.1
 config.keys = {
 	{ key = "t", mods = "CTRL", action = wezterm.action.SpawnTab("CurrentPaneDomain") },
+	{ key = "t", mods = "CMD", action = wezterm.action.SpawnTab("CurrentPaneDomain") },
 	{ key = "w", mods = "CTRL|SHIFT", action = wezterm.action.CloseCurrentTab({ confirm = false }) },
 	{ key = "q", mods = "CTRL|SHIFT", action = wezterm.action.CloseCurrentPane({ confirm = false }) },
 	{ key = "Insert", mods = "CTRL", action = wezterm.action.CopyTo("Clipboard") },
