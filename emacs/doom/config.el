@@ -60,14 +60,16 @@
   (simpleclip-mode 1))
 
 (after! lsp-mode
-  (setq! lsp-rust-analyzer-inlay-hints-mode 't)
-  (setq! lsp-rust-analyzer-server-display-inlay-hints 't)
-  (setq! lsp-rust-analyzer-proc-macro-enable 't)
   (setq! lsp-ui-doc-show-with-cursor 't)
   ;; (setq lsp-terraform-server '("terraform-ls" "serve"))
   ;; (setq lsp-semantic-tokens-enable t)
   ;; (setq lsp-semantic-tokens-honor-refresh-requests t)
   (setq! lsp-headerline-breadcrumb-enable 't))
+
+(after! rustic-lsp
+  (setq! lsp-rust-analyzer-inlay-hints-mode 't)
+  (setq! lsp-rust-analyzer-server-display-inlay-hints 't)
+  (setq! lsp-rust-analyzer-proc-macro-enable 't))
 
 (setq poetry-tracking-strategy 'switch-buffer)
 (setq org-html-checkbox-type 'html)
@@ -101,16 +103,11 @@
   :config
   (apheleia-global-mode +1))
 
-;; Use delta for magit diff
-(use-package! magit-delta
-  :hook (magit-mode . magit-delta-mode)
-  :config
-    (setq! magit-delta-delta-args
-        '("--24-bit-color" "always"
-          "--features" "magit-delta"
-          "--color-only")))
-
 ;; Use go language for tpl files
 (after! web-mode
   (add-to-list 'web-mode-engines-alist
-      '("go" . "\\.tpl\\'")))
+               '("go" . "\\.tpl\\'")))
+
+;; Magit with delta
+(use-package! magit-delta
+  :hook (magit-mode . magit-delta-mode))
