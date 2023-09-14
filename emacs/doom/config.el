@@ -19,7 +19,7 @@
 ;; They all accept either a font-spec, font string ("Input Mono-12"), or xlfd
 ;; font string. You generally only need these two:
 (setq doom-font (font-spec :family "JuliaMono" :size 14)
-      doom-variable-pitch-font (font-spec :family "Inter V" :size 14)
+      doom-variable-pitch-font (font-spec :family "Asap" :size 14)
       doom-unicode-font doom-font)
 
 ;; There are two ways to load a theme. Both assume the theme is installed and
@@ -66,7 +66,7 @@
   ;; (setq lsp-semantic-tokens-honor-refresh-requests t)
   (setq! lsp-headerline-breadcrumb-enable 't))
 
-(after! rustic-lsp
+(after! rustic
   (setq! lsp-rust-analyzer-inlay-hints-mode 't)
   (setq! lsp-rust-analyzer-server-display-inlay-hints 't)
   (setq! lsp-rust-analyzer-proc-macro-enable 't))
@@ -92,16 +92,9 @@
   )
 
 ;; Run lsp after terraform-mode
-(use-package! terraform-mode
-  :hook (terraform-mode . lsp-deferred))
+(add-hook 'terraform-mode-local-vars-hook #'lsp!)
 ;; Run lsp after GFM mode
-(use-package! markdown-mode
-  :hook (markdown-mode . lsp-deferred))
-
-;; Use apheleia formatter
-(use-package! apheleia
-  :config
-  (apheleia-global-mode +1))
+(add-hook 'gfm-mode-local-vars-hook #'lsp!)
 
 ;; Use go language for tpl files
 (after! web-mode
@@ -111,3 +104,10 @@
 ;; Magit with delta
 (use-package! magit-delta
   :hook (magit-mode . magit-delta-mode))
+
+;; Auto refresh buffer when files changed on disk
+(global-auto-revert-mode t)
+
+;; Auto refresh magit buffer when a file buffer is saved
+(after! magit
+  (add-hook 'after-save-hook 'magit-after-save-refresh-status t))

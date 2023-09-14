@@ -22,7 +22,7 @@ config.window_padding = {
 	top = "0cell",
 	bottom = "0cell",
 }
-config.font_size = 14.1
+config.font_size = 14.2
 config.keys = {
 	{ key = "t", mods = "CTRL", action = wezterm.action.SpawnTab("CurrentPaneDomain") },
 	{ key = "t", mods = "CMD", action = wezterm.action.SpawnTab("CurrentPaneDomain") },

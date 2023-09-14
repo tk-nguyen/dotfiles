@@ -103,13 +103,13 @@ export LANG=en_US.UTF-8
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-export PATH="$PATH:$HOME/.local/bin:$HOME/.cargo/bin:$HOME/.emacs.d/bin"
+export PATH="$PATH:$HOME/.cargo/bin:$HOME/.emacs.d/bin"
 export VISUAL="nvim"
 export EDITOR=$VISUAL
 
-alias ls="exa -hg --icons"
+alias ls="eza -hg --icons"
 alias vim=nvim
 
 autoload -U +X bashcompinit && bashcompinit
-complete -o nospace -C /usr/bin/terraform terraform
+complete -o nospace -C /usr/local/bin/terraform terraform
 eval "$(starship init zsh)"
