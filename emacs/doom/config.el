@@ -91,8 +91,6 @@
   "di"   #'doom/ediff-init-and-example
   )
 
-;; Run lsp after terraform-mode
-(add-hook 'terraform-mode-local-vars-hook #'lsp!)
 ;; Run lsp after GFM mode
 (add-hook 'gfm-mode-local-vars-hook #'lsp!)
 

@@ -70,7 +70,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(colored-man-pages asdf zsh-syntax-highlighting zsh-autosuggestions zsh-history-substring-search)
+plugins=(colored-man-pages zsh-syntax-highlighting zsh-autosuggestions zsh-history-substring-search mise terraform zoxide starship)
 
 fpath+="${ZSH_CUSTOM:-"$ZSH/custom"}/plugins/zsh-completions/src"
 source $ZSH/oh-my-zsh.sh
@@ -107,9 +107,5 @@ export PATH="$PATH:$HOME/.cargo/bin:$HOME/.emacs.d/bin"
 export VISUAL="nvim"
 export EDITOR=$VISUAL
 
-alias ls="eza -hg --icons"
+alias ls="eza --icons -hg"
 alias vim=nvim
-
-autoload -U +X bashcompinit && bashcompinit
-complete -o nospace -C /usr/local/bin/terraform terraform
-eval "$(starship init zsh)"
