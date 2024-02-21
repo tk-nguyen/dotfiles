@@ -65,6 +65,9 @@ export ZSH="$HOME/.oh-my-zsh"
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
+# Use cd instead of z for zoxide
+ZOXIDE_CMD_OVERRIDE=cd
+
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
@@ -73,6 +76,7 @@ export ZSH="$HOME/.oh-my-zsh"
 plugins=(colored-man-pages zsh-syntax-highlighting zsh-autosuggestions zsh-history-substring-search mise terraform zoxide starship)
 
 fpath+="${ZSH_CUSTOM:-"$ZSH/custom"}/plugins/zsh-completions/src"
+
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -103,7 +107,7 @@ export LANG=en_US.UTF-8
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-export PATH="$PATH:$HOME/.cargo/bin:$HOME/.emacs.d/bin"
+export PATH="$PATH:$HOME/.cargo/bin:$HOME/.config/emacs/bin"
 export VISUAL="nvim"
 export EDITOR=$VISUAL
 

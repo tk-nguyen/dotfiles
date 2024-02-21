@@ -3,3 +3,7 @@ disabled = true
 
 [kubernetes]
 disabled = false
+
+[status]
+disabled = false
+
