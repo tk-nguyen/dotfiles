@@ -73,9 +73,10 @@ ZOXIDE_CMD_OVERRIDE=cd
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(colored-man-pages zsh-syntax-highlighting zsh-autosuggestions zsh-history-substring-search mise terraform zoxide starship)
+plugins=(colored-man-pages zsh-syntax-highlighting zsh-autosuggestions zsh-history-substring-search mise terraform zoxide starship brew)
 
-fpath+="${ZSH_CUSTOM:-"$ZSH/custom"}/plugins/zsh-completions/src"
+# zsh-completion
+fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
 
 source $ZSH/oh-my-zsh.sh
 
