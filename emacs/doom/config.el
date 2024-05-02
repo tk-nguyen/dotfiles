@@ -67,8 +67,8 @@
   (setq! lsp-headerline-breadcrumb-enable 't))
 
 (after! rustic
-  (setq! lsp-rust-analyzer-inlay-hints-mode 't)
-  (setq! lsp-rust-analyzer-server-display-inlay-hints 't)
+  (setq! lsp-inlay-hints-mode 't)
+  (setq! lsp-inlay-hint-enable 't)
   (setq! lsp-rust-analyzer-proc-macro-enable 't))
 
 (setq poetry-tracking-strategy 'switch-buffer)
