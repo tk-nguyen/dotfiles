@@ -74,12 +74,6 @@
 (setq poetry-tracking-strategy 'switch-buffer)
 (setq org-html-checkbox-type 'html)
 
-;; Use tree-sitter
-(use-package! tree-sitter
-  :config
-  (global-tree-sitter-mode)
-  (add-hook! 'tree-sitter-after-on-hook #'tree-sitter-hl-mode))
-
 ;; Diff the doom configs with the example
 (defun doom/ediff-init-and-example ()
   "ediff the current `init.el' with the example in doom-emacs-dir"
@@ -109,3 +103,5 @@
 ;; Auto refresh magit buffer when a file buffer is saved
 (after! magit
   (add-hook 'after-save-hook 'magit-after-save-refresh-status t))
+
+(setq! flycheck-python-ruff-executable "ruff")

@@ -13,7 +13,7 @@ end
 -- This is where you actually apply your config choices
 config.color_scheme = "Dracula (Official)"
 config.use_fancy_tab_bar = false
-config.font = wezterm.font("JuliaMono")
+config.font = wezterm.font({ family = 'JuliaMono', assume_emoji_presentation = false })
 config.window_close_confirmation = "NeverPrompt"
 config.enable_scroll_bar = true
 config.window_padding = {
