@@ -105,3 +105,10 @@
   (add-hook 'after-save-hook 'magit-after-save-refresh-status t))
 
 (setq! flycheck-python-ruff-executable "ruff")
+
+;; Better auto save
+(use-package! super-save
+  :config
+  (super-save-mode +1)
+  (setq super-save-auto-save-when-idle t)
+  (setq auto-save-default nil))
