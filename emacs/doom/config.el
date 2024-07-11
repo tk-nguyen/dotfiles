@@ -71,8 +71,8 @@
   (setq! lsp-inlay-hint-enable 't)
   (setq! lsp-rust-analyzer-proc-macro-enable 't))
 
-(setq poetry-tracking-strategy 'switch-buffer)
-(setq org-html-checkbox-type 'html)
+(setq! poetry-tracking-strategy 'switch-buffer)
+(setq! org-html-checkbox-type 'html)
 
 ;; Diff the doom configs with the example
 (defun doom/ediff-init-and-example ()
@@ -110,5 +110,6 @@
 (use-package! super-save
   :config
   (super-save-mode +1)
-  (setq super-save-auto-save-when-idle t)
-  (setq auto-save-default nil))
+  (setq! super-save-auto-save-when-idle t)
+  (setq! auto-save-default nil))
+
