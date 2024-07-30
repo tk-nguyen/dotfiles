@@ -15,13 +15,15 @@
 ;;      directory (for easy access to its source code).
 
 (doom! :input
+       ;;bidi              ; (tfel ot) thgir etirw uoy gnipleh
        ;;chinese
        ;;japanese
        ;;layout                                         ; auie,ctsrnm is the superior home row
 
        :completion
-       (company +childframe)                            ; the ultimate code completion backend
-       ;; (helm +fuzzy +icons)                          ; the *other* search engine for love and life
+       ;;(company +childframe)                          ; the ultimate code completion backend
+       (corfu +orderless +icons)                        ; complete with cap(f), cape and a flying feather!
+       ;;(helm +fuzzy +icons)                           ; the *other* search engine for love and life
        ;;ido                                            ; the other *other* search engine...
        ;;(ivy +fuzzy +icons +prescient)                 ; a search engine for love and life
        (vertico +icons)                                 ; the search engine of the future
@@ -107,8 +109,8 @@
        ;;upload                                         ; map local to remote projects via ssh/ftp
 
        :os
-       (:if IS-MAC macos)                               ; improve compatibility with macOS
-       ;;tty                                            ; improve the terminal Emacs experience
+       (:if (featurep :system 'macos) macos)  ; improve compatibility with macOS
+       ;;tty               ; improve the terminal Emacs experience
 
        :lang
        ;;agda                                           ; types of types of types of types...
@@ -183,10 +185,9 @@
        :app
        ;;calendar
        ;;emms
-       ;;everywhere                                     ; *leave* Emacs!? You must be joking
-       ;;irc                                            ; how neckbeards socialize
-       ;;(rss +org)                                     ; emacs as an RSS reader
-       ;;twitter                                        ; twitter client https://twitter.com/vnought
+       ;;everywhere        ; *leave* Emacs!? You must be joking
+       ;;irc               ; how neckbeards socialize
+       ;;(rss +org)        ; emacs as an RSS reader
 
        :config
        ;;literate
