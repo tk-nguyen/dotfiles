@@ -60,16 +60,18 @@
   (simpleclip-mode 1))
 
 (after! lsp-mode
-  (setq! lsp-ui-doc-show-with-cursor 't)
-  ;; (setq lsp-terraform-server '("terraform-ls" "serve"))
-  ;; (setq lsp-semantic-tokens-enable t)
-  ;; (setq lsp-semantic-tokens-honor-refresh-requests t)
-  (setq! lsp-headerline-breadcrumb-enable 't))
+  (setq!
+   lsp-semantic-tokens-enable 't
+   lsp-semantic-tokens-honor-refresh-requests 't
+   lsp-terraform-ls-validate-on-save 't
+   lsp-ui-doc-show-with-cursor 't
+   lsp-headerline-breadcrumb-enable 't))
 
 (after! rustic
-  (setq! lsp-inlay-hints-mode 't)
-  (setq! lsp-inlay-hint-enable 't)
-  (setq! lsp-rust-analyzer-proc-macro-enable 't))
+  (setq!
+   lsp-inlay-hints-mode 't
+   lsp-inlay-hint-enable 't
+   lsp-rust-analyzer-proc-macro-enable 't))
 
 (setq! poetry-tracking-strategy 'switch-buffer)
 (setq! org-html-checkbox-type 'html)
@@ -98,7 +100,7 @@
   :hook (magit-mode . magit-delta-mode))
 
 ;; Auto refresh buffer when files changed on disk
-(global-auto-revert-mode t)
+(global-auto-revert-mode 't)
 
 ;; Auto refresh magit buffer when a file buffer is saved
 (after! magit
@@ -110,6 +112,17 @@
 (use-package! super-save
   :config
   (super-save-mode +1)
-  (setq! super-save-auto-save-when-idle t)
-  (setq! auto-save-default nil))
+  (setq!
+   super-save-auto-save-when-idle 't
+   auto-save-default nil))
 
+(after! indent-bars
+  (setq!
+   indent-bars-color '(highlight :face-bg 't :blend 0.15)
+   indent-bars-pattern "."
+   indent-bars-width-frac 0.1
+   indent-bars-pad-frac 0.1
+   indent-bars-zigzag nil
+   indent-bars-color-by-depth '(:regexp "outline-\\([0-9]+\\)" :blend 1) ; blend=1: blend with BG only
+   indent-bars-highlight-current-depth '(:blend 0.5) ; pump up the BG blend on current
+   indent-bars-display-on-blank-lines 't))
