@@ -59,54 +59,9 @@
   :config
   (simpleclip-mode 1))
 
-(after! lsp-mode
-  (setq!
-   lsp-semantic-tokens-enable 't
-   lsp-semantic-tokens-honor-refresh-requests 't
-   lsp-terraform-ls-validate-on-save 't
-   lsp-ui-doc-show-with-cursor 't
-   lsp-headerline-breadcrumb-enable 't))
-
-(after! rustic
-  (setq!
-   lsp-inlay-hints-mode 't
-   lsp-inlay-hint-enable 't
-   lsp-rust-analyzer-proc-macro-enable 't))
-
-(setq! poetry-tracking-strategy 'switch-buffer)
-(setq! org-html-checkbox-type 'html)
-
-;; Diff the doom configs with the example
-(defun doom/ediff-init-and-example ()
-  "ediff the current `init.el' with the example in doom-emacs-dir"
-  (interactive)
-  (ediff-files (concat doom-user-dir "init.el")
-               (concat doom-emacs-dir "templates/" "init.example.el")))
-
-(define-key! help-map
-  "di"   #'doom/ediff-init-and-example
-  )
-
-;; Run lsp after GFM mode
-(add-hook 'gfm-mode-local-vars-hook #'lsp!)
-
-;; Use go language for tpl files
-(after! web-mode
-  (add-to-list 'web-mode-engines-alist
-               '("go" . "\\.tpl\\'")))
-
 ;; Magit with delta
 (use-package! magit-delta
   :hook (magit-mode . magit-delta-mode))
-
-;; Auto refresh buffer when files changed on disk
-(global-auto-revert-mode 't)
-
-;; Auto refresh magit buffer when a file buffer is saved
-(after! magit
-  (add-hook 'after-save-hook 'magit-after-save-refresh-status t))
-
-(setq! flycheck-python-ruff-executable "ruff")
 
 ;; Better auto save
 (use-package! super-save
@@ -115,6 +70,17 @@
   (setq!
    super-save-auto-save-when-idle 't
    auto-save-default nil))
+
+(after! lsp-mode
+  (add-to-list 'lsp-language-id-configuration
+               '(helm-mode . "helm-ls"))
+  (add-hook 'helm-mode-hook #'lsp!)
+  (setq!
+   lsp-semantic-tokens-enable 't
+   lsp-semantic-tokens-honor-refresh-requests 't
+   lsp-terraform-ls-validate-on-save 't
+   lsp-ui-doc-show-with-cursor 't
+   lsp-headerline-breadcrumb-enable 't))
 
 (after! indent-bars
   (setq!
@@ -126,3 +92,42 @@
    indent-bars-color-by-depth '(:regexp "outline-\\([0-9]+\\)" :blend 1) ; blend=1: blend with BG only
    indent-bars-highlight-current-depth '(:blend 0.5) ; pump up the BG blend on current
    indent-bars-display-on-blank-lines 't))
+
+(after! rustic
+  (setq!
+   lsp-inlay-hints-mode 't
+   lsp-inlay-hint-enable 't
+   lsp-rust-analyzer-proc-macro-enable 't))
+
+;; Auto refresh magit buffer when a file buffer is saved
+(after! magit
+  (add-hook 'after-save-hook 'magit-after-save-refresh-status t))
+
+;; Use go language for tpl files
+(after! web-mode
+  (add-to-list 'web-mode-engines-alist
+               '("go" . "\\.tpl\\'")))
+
+
+;; Diff the doom configs with the example
+(defun doom/ediff-init-and-example ()
+  "ediff the current `init.el' with the example in doom-emacs-dir"
+  (interactive)
+  (ediff-files (concat doom-user-dir "init.el")
+               (concat doom-emacs-dir "static/" "init.example.el")))
+
+(define-key! help-map
+  "di"   #'doom/ediff-init-and-example
+  )
+
+;; Run lsp after GFM mode
+(add-hook 'gfm-mode-local-vars-hook #'lsp!)
+
+;; Auto refresh buffer when files changed on disk
+(global-auto-revert-mode 't)
+
+(setq! flycheck-python-ruff-executable "ruff")
+(setq! org-html-checkbox-type 'html)
+
+(define-derived-mode helm-mode yaml-mode "Helm"
+  "Major mode for editing kubernetes helm templates")
